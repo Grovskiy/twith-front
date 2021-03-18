@@ -9,7 +9,7 @@
       />
     </v-col>
     <v-col>
-      <v-btn @click="sendPost">Send Content</v-btn>
+      <v-btn @click="sendPost">Send twit</v-btn>
     </v-col>
     <v-col>
       <Post

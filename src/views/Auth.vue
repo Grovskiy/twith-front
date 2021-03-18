@@ -26,6 +26,11 @@
           <v-col>
             <v-btn @click="setCredentials" :disabled="!valid">Login</v-btn>
           </v-col>
+          <v-col>
+            <v-btn @click="setCredentialsRegister" :disabled="!valid"
+              >Sign Up</v-btn
+            >
+          </v-col>
         </v-row>
       </v-container>
     </v-form>
@@ -35,7 +40,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Action, Mutation, State } from 'vuex-class';
-import { SignInData, User } from '@/interfaces/UserInterface';
+import { RegistrationData, SignInData, User } from '@/interfaces/UserInterface';
 import { regEmail } from '@/helpers/regEmail';
 
 @Component({ name: 'Auth' })
@@ -45,9 +50,17 @@ export default class Auth extends Vue {
   @Action private signIn!: (credentials: SignInData) => void;
   @Mutation private logoutSuccess!: () => void;
 
-  private signInData: SignInData = {
+  signInData: SignInData = {
     email: 'test@test.com',
     password: 'Test+123456',
+  };
+
+  signUnData: RegistrationData = {
+    email: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    nickName: '',
   };
   valid = true;
   isPasswordVisible = false;
@@ -60,6 +73,9 @@ export default class Auth extends Vue {
   };
 
   async setCredentials() {
+    this.signIn(this.signInData);
+  }
+  async setCredentialsRegister() {
     this.signIn(this.signInData);
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <TheHeader></TheHeader>
+    <TheHeader />
     <v-main class="grey lighten-3">
       <v-container>
         <v-row justify="center">
@@ -16,14 +16,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import TheHeader from "@/blocks/Layout/TheHeader.vue";
+import { Component, Vue } from 'vue-property-decorator';
+import TheHeader from '@/blocks/Layout/TheHeader.vue';
 
 @Component({
-  name: "App",
+  name: 'App',
   components: {
-    TheHeader
-  }
+    TheHeader,
+  },
 })
 export default class App extends Vue {}
 </script>

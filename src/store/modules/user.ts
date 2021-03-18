@@ -38,6 +38,12 @@ const actions: ActionTree<any, any> = {
     return dispatch('attempt', response.data.token);
   },
 
+  async signUp(_, credentials) {
+    const response = await UserService.registration(credentials);
+
+    console.log(response);
+  },
+
   async attempt({ commit, state }, token) {
     if (token) {
       commit('setToken', token);
